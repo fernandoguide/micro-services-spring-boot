@@ -2,19 +2,29 @@ package br.com.fernando.hrpayroll.entities;
 
 import java.io.Serializable;
 
-public class Payment implements Serializable {
+public class Worker implements Serializable {
+
 	private static final long serialVersionUID = 1L;
+
+	private Long id;
 	private String name;
 	private Double dailyIncome;
-	private Integer days;
 
-	public Payment() {
+	public Worker() {
 	}
 
-	public Payment(String name, Double dailyIncome, Integer days) {
+	public Worker(Long id, String name, Double dailyIncome) {
+		this.id = id;
 		this.name = name;
 		this.dailyIncome = dailyIncome;
-		this.days = days;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -33,21 +43,9 @@ public class Payment implements Serializable {
 		this.dailyIncome = dailyIncome;
 	}
 
-	public Integer getDays() {
-		return days;
-	}
-
-	public void setDays(Integer days) {
-		this.days = days;
-	}
-
-	public double getTotal() {
-		return days * dailyIncome;
-	}
-
 	@Override
 	public String toString() {
-		return "Payment [name=" + name + ", dailyIncome=" + dailyIncome + ", days=" + days + "]";
+		return "Worker [id=" + id + ", name=" + name + ", dailyIncome=" + dailyIncome + "]";
 	}
 
 }
